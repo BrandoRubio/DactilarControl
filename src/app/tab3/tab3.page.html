@@ -1,0 +1,76 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="end">
+      <!--ion-menu-button color="primary" menu="menuPrincipal"></ion-menu-button-->
+      <ion-button (click)="openMenu()">
+        <ion-icon slot="icon-only" name="settings"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      <h1>Añadir usuario</h1>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form [formGroup]="NewUserForm" #form="ngForm" (ngSubmit)="sendDataNewUser(form)" >
+    <ion-item [hidden]="true">
+      <ion-text color="primary"><h4>ID</h4></ion-text>
+      <ion-input placeholder="proporcionado por arduino" type="number" required [(ngModel)]="NewUserForm.id" value="{{IDToNewUser}}"formControlName="id" style="text-align:right"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-text color="primary"><h4>Siglas</h4></ion-text>
+      <ion-input placeholder="ej. BRRS" type="text" required [(ngModel)]="NewUserForm.siglas" value="{{siglasToNewUser}}" formControlName="siglas" style="text-align:right"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-text color="primary"><h4>Nombre corto</h4></ion-text>
+      <ion-input placeholder="Brando R" type="text" [(ngModel)]="NewUserForm.nombre" value="{{nombreToNewUser}}" formControlName="nombre" style="text-align:right"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-text color="primary"><h4>Área</h4></ion-text>
+      <ion-input placeholder="ej. Augmented Reality"type="text" [(ngModel)]="NewUserForm.area" value="{{areaToNewUser}}" formControlName="area" style="text-align:right"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-text color="primary"><h4>E-mail</h4></ion-text>
+      <ion-input placeholder="person.condor@gmail.com" type="email" [(ngModel)]="NewUserForm.correo" value="{{emailToNewUser}}" formControlName="correo" style="text-align:right"></ion-input>
+    </ion-item>
+
+    <!--ion-item lines="none">
+    </ion-item>
+    <ion-item lines="none">
+    </ion-item>
+    <ion-item lines="none">
+    </ion-item>
+    <ion-item lines="none">
+    </ion-item>
+    <ion-item lines="none">
+    </ion-item-->
+
+    <ion-fab  vertical="bottom" horizontal="end" slot="fixed">
+      <ion-button size="large" color="dark" type="submit" disabled=false>
+        <ion-icon name="finger-print-outline"></ion-icon>
+      </ion-button>
+    </ion-fab>
+
+    <!--ion-button no-lines expand="block" color="dark" type="submit" disabled=false>
+      <ion-icon name="finger-print-outline"></ion-icon>
+      Escanear 
+    </ion-button-->
+
+    <!--section>
+      <ion-row>
+      <ion-col width-50 style="text-align: right">
+        <ion-button size="small" color="success">Limpiar datos</ion-button>
+      </ion-col>
+      <ion-col width-50 style="text-align: left">
+        <ion-button size="small" color="primary" type="submit">Enviar datos</ion-button>
+      </ion-col>
+      </ion-row>
+    </section-->
+  </form>
+</ion-content>
+
+
+<!--ion-footer>
+  <ion-toolbar>
+  </ion-toolbar>
+</ion-footer-->

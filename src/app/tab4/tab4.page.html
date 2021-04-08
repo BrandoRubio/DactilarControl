@@ -1,0 +1,43 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="end">
+      <!--ion-menu-button color="primary" menu="menuPrincipal"></ion-menu-button-->
+      <ion-button (click)="openMenu()">
+        <ion-icon slot="icon-only" name="settings"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      <h1>Consultores</h1>
+    </ion-title>
+  </ion-toolbar>
+
+  <ion-list-header position="sticky" color="success">
+    <ion-label class="siglas-label"> Siglas </ion-label>
+    <ion-label class="nombre-label"> Nombre </ion-label>
+    <ion-label class="area-label"> Area </ion-label>
+  </ion-list-header>
+</ion-header>
+
+<ion-content>
+  <ion-list padding>
+    <ion-item-sliding *ngFor="let consultor of consultores">
+      <ion-item button (click)="showDetailsRegister(consultor)">
+        <ion-label color="dark" class="siglas-label"> {{consultor.siglas}} </ion-label>
+        <ion-label color="dark" class="nombre-label"> {{consultor.nombre}} </ion-label>
+        <ion-label color="dark" class="area-label"> {{consultor.area}} </ion-label>
+        <ion-fab horizontal="end" vertical="center">
+          <ion-fab-button class="icon-add" size="small" color="success" (click)="passUser(consultor.siglas,consultor.nombre,consultor.area, consultor.correo)">
+            <ion-icon name="add-outline"></ion-icon>
+          </ion-fab-button>
+        </ion-fab>
+      </ion-item>
+    </ion-item-sliding>
+  </ion-list>
+
+  
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button size="small" color={{colorFilter}} (click)="showFilter()">
+      <ion-icon name="funnel"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

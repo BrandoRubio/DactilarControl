@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button (click)="GoToBack()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      <h1>Editar usuario</h1>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="UpdateUserForm" #form="ngForm" (ngSubmit)="UpdateUserDatabase(form)">
+    <ion-item [hidden]="true">
+      <ion-text color="primary">
+        <h4>ID</h4>
+      </ion-text>
+      <ion-input placeholder="proporcionado por arduino" type="number" required [(ngModel)]="UpdateUserForm.id"
+        value="{{idUser}}" formControlName="id" style="text-align:right"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-text color="primary">
+        <h4>Siglas</h4>
+      </ion-text>
+      <ion-input placeholder="ej. BRRS" type="text" required [(ngModel)]="UpdateUserForm.siglas" value="{{siglasUser}}"
+        formControlName="siglas" style="text-align:right"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-text color="primary"><h4>Nombre corto</h4></ion-text>
+      <ion-input placeholder="Brando R" type="text" [(ngModel)]="UpdateUserForm.nombre" value="{{nombreUser}}" formControlName="nombre" style="text-align:right"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-text color="primary">
+        <h4>E-mail</h4>
+      </ion-text>
+      <ion-input placeholder="person.condor@gmail.com" type="email" [(ngModel)]="UpdateUserForm.correo"
+        value="{{correoUser}}" formControlName="correo" style="text-align:right"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-text color="primary">
+        <h4>Área</h4>
+      </ion-text>
+      <ion-input placeholder="ej. Augmented Reality" type="text" [(ngModel)]="UpdateUserForm.area" formControlName="area"
+      value="{{areaUser}}" style="text-align:right"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+    </ion-item>
+    <ion-item lines="none">
+    </ion-item>
+    <ion-item lines="none">
+    </ion-item>
+    <ion-item lines="none">
+    </ion-item>
+    <ion-item lines="none">
+    </ion-item>
+
+
+    <ion-button expand="block" color="success" type="submit" disabled=false>
+      <ion-icon name="checkmark-outline"></ion-icon>
+      Actualizar usuario
+    </ion-button>
+
+    <!--section>
+      <ion-row>
+      <ion-col width-50 style="text-align: right">
+        <ion-button size="small" color="success">Limpiar datos</ion-button>
+      </ion-col>
+      <ion-col width-50 style="text-align: left">
+        <ion-button size="small" color="primary" type="submit">Enviar datos</ion-button>
+      </ion-col>
+      </ion-row>
+    </section-->
+  </form>
+</ion-content>

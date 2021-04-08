@@ -1,0 +1,46 @@
+<ion-app>
+  <ion-menu side="end" menuId="menuPrincipal" contentId="main">
+    <ion-header>
+      <ion-toolbar color="primary">
+        <ion-title>Configuración</ion-title>
+        <ion-buttons slot="start">
+          <!--ion-menu-button color="primary" menu="menuPrincipal"></ion-menu-button-->
+          <ion-icon slot="icon-only" name="settings"></ion-icon>
+          <ion-button>
+          </ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <form [formGroup]="menu" #form="ngForm" (ngSubmit)="sendSettings(form)">
+        <ion-list>
+          <ion-item>
+            <ion-label no-lines position="fixed" color="primary">IP ESP32</ion-label>
+            <ion-input value="{{ipESP}}" type="text"[(ngModel)]="menu.ip" formControlName="ip"
+            style="text-align:right"></ion-input>
+          </ion-item>
+          <!--ion-item>
+            <ion-label color="primary">Intervalo de recarga:</ion-label>
+            <ion-select name="Intervalo" value="{{intervaloValue}}" (ionChange)="actualizarValor($event.detail)">
+              <ion-select-option value="1000000">Al entrar a la pestaña</ion-select-option>
+              <ion-select-option value="10000">Cada 10 seg.</ion-select-option>
+              <ion-select-option value="30000">Cada 30 seg.</ion-select-option>
+              <ion-select-option value="100000">Cada 1 min.</ion-select-option>
+              <ion-select-option value="200000">Cada 2 min.</ion-select-option>
+              <ion-select-option value="300000">Cada 3 min.</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-item>
+            <ion-label color="primary">Max. datos por cosulta:</ion-label>
+            <ion-input type="number" required [(ngModel)]="menu.maxReg" formControlName="maxReg"
+              style="text-align:right">
+              </ion-input>
+          </ion-item-->
+        </ion-list>
+        <ion-button color="primary" expand="block"type="submit">Guardar</ion-button>
+      </form>
+    </ion-content>
+  </ion-menu>
+
+  <ion-router-outlet id="main"></ion-router-outlet>
+</ion-app>

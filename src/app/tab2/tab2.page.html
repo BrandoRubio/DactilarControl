@@ -1,0 +1,60 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="end">
+      <!--ion-menu-button color="primary" menu="menuPrincipal"></ion-menu-button-->
+      <ion-button (click)="openMenu()">
+        <ion-icon slot="icon-only" name="settings"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      <h1>Usuarios</h1>
+    </ion-title>
+  </ion-toolbar>
+
+  
+  <ion-list-header position="sticky" color="success">
+    <ion-label class="id-label"[hidden]="true">ID</ion-label>
+    <ion-label class="nombre-label"> Nombre corto </ion-label>
+    <ion-label class="siglas-label"> Siglas </ion-label>
+    <ion-label class="correo-label"[hidden]="true"> Correo </ion-label>
+    <ion-label class="area-label"> Area </ion-label>
+    
+  </ion-list-header>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <!-- lista de registros -->
+  <ion-list padding>
+    <ion-item-sliding *ngFor="let user of lista">
+      <ion-item button (click)="showDetailsRegister(user)">
+        <ion-label color="dark" class="id-label" [hidden]="true"> {{user.ID}} </ion-label>
+        <ion-label color="dark" class="nombre-label"> {{user.Nombre}} </ion-label>
+        <ion-label color="dark" class="siglas-label"> {{user.Siglas}} </ion-label>
+        <!--ion-label color="dark" class="correo-label"> {{user.Correo}} </ion-label-->
+        <ion-label color="dark" class="area-label"> {{user.Area}} </ion-label>
+      </ion-item>
+
+        <ion-item-options side="start">
+          <ion-item-option color="success" (click)="goToUpdateUser(user.ID,user.Nombre,user.Siglas,user.Correo,user.Area)">
+            <ion-icon name="create-outline"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>
+
+        <ion-item-options side="end">
+          <ion-item-option color="danger" (click)="deleteUser(user.ID, user.Siglas)">Eliminar</ion-item-option>
+          <!--ion-button color="danger" (click)="deleteUser()">Eliminar</ion-button-->
+        </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <!--ion-fab-button size="small" color="success" routerLink="/addUser" routerDirection="root">
+      <ion-icon name="add-outline"></ion-icon>
+    </ion-fab-button-->
+    <ion-fab-button size="small" color="success" routerLink="/tabs/tab3">
+      <ion-icon name="add-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

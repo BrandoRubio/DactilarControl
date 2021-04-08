@@ -1,0 +1,13 @@
+{
+  "appId": "io.ionic.starter",
+  "appName": "DactilarControl",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "src",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  },
+  "cordova": {}
+}
